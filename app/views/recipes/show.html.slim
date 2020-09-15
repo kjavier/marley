@@ -1,0 +1,26 @@
+- cache @recipe do
+  .container.mt-5
+    .text-center
+      h1.mb-4= @recipe.title 
+
+      - markdown = "![alt text](#{@recipe.photo.url})" 
+      = parse_markdown(markdown, image_options: { width: 1024, height: 500 })
+
+      p= @recipe.description
+
+      p
+        | #{t('recipes.terms.chef')}: 
+       
+        - chef = @recipe.chef
+        = chef.present? ? chef.name : t('none') 
+
+      p
+        | #{t('recipes.terms.tags')}: 
+       
+        - tags = @recipe.tags
+        
+        - if tags.present?
+          = @recipe.tags.map(&:name).join(', ')
+        - else
+          = t('none')
+

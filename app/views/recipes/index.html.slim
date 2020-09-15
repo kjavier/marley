@@ -1,0 +1,14 @@
+.container.mt-5
+  h1.mb-4= t('recipes.terms.recipes') 
+
+  .row.row-cols-3
+    - @recipes.each do |recipe|
+      - cache recipe do
+        .col.mb-4
+          .card
+            img src=recipe.photo.url class='card-img-top' alt=recipe.title
+
+            .card-body
+              h5.card-title= recipe.title
+            
+              = link_to t('recipes.buttons.view_recipe'), recipe_path(recipe.id), class: 'btn btn-primary'

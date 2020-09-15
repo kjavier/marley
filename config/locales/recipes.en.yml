@@ -1,0 +1,9 @@
+en:
+  recipes:
+    buttons:
+      view_recipe: View Recipe
+
+    terms:
+      chef: Chef
+      recipes: Recipes
+      tags: Tags
